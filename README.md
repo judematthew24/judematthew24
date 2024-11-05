@@ -47,3 +47,36 @@ c.execute("""CREATE TABLE "myinfo"
          )"""
 )
 
+def submit():
+    #database
+    conn=sqlite3.connect('C:/Users/CICT/data.db')
+
+    #create cursor
+
+    c=conn.cursor()
+    insert into Table
+    c.execute("INSERT INTO studentinfo
+    VALUES(:F_name,:L_name,:age,:address,:email)",
+
+
+
+              {
+                  'f_name':f_name.get(),
+                  'l_name':l_name.get(),
+                  'age':age.get(),
+                  'address':address.get(),
+                  'email':email.get(),
+
+         })
+    #commit changes
+    conn.commmit
+
+    #close connection
+    conn.commit
+
+    #cclear thetaxt boxes
+    f_name.delete(0,END)
+    l_name.delete(0,END)
+    age.delete(0,END)
+    address.delete(0,END)
+    email.delete(0,END)
